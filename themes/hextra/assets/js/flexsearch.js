@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const content = data[route].data[heading] || '';
         const paragraphs = content.split('\n') // .filter(Boolean);
 
-        // console.log('Adding paragraph 0 for id ', url);
+        console.log('Adding paragraph 0 for id ', url);
         sectionIndex.add({
           id: url,
           url,
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         for (let i = 0; i < paragraphs.length; i++) {
-          // console.log('Adding paragraph ', i, ' for id ', `${url}_${i}`);
+          console.log('Adding paragraph ', i, ' for id ', `${url}_${i}`);
           sectionIndex.add({
             id: `${url}_${i}`,
             url,
@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   function search(e) {
     const query = e.target.value;
-    // console.log('search for ', query);
+    console.log('search for ', query);
     if (!e.target.value) {
       hideSearchResults();
       return;
@@ -332,10 +332,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const results = [];
     const pageTitleMatches = {};
 
-    // console.log('No. of pageResults = ', pageResults.length);
+    console.log('No. of pageResults = ', pageResults.length);
     for (let i = 0; i < pageResults.length; i++) {
       const result = pageResults[i];
-      // console.log('pageResult[', i, '] = ', result, ', pageId = ', `page_${result.id}`);
+      console.log('pageResult[', i, '] = ', result, ', pageId = ', `page_${result.id}`);
       pageTitleMatches[i] = 0;
 
       // Show the top 5 results for each page
@@ -348,11 +348,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const occurred = {}
 
       if (sectionResults.length == 0) {
-	// console.log('Zero sectionResults for ', result)
+	console.log('Zero sectionResults for ', result)
       }
       for (let j = 0; j < sectionResults.length; j++) {
         const { doc } = sectionResults[j]
-	// console.log('sectionResult[', j, '] = ', doc);
+	console.log('sectionResult[', j, '] = ', doc);
         const isMatchingTitle = doc.display !== undefined
         if (isMatchingTitle) {
           pageTitleMatches[i]++
